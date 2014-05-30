@@ -9,10 +9,10 @@ import java.io.File;
 
 public class ConfigFile {
 
-    private static String fileName;
-    private static FileConfiguration conf;
-    private static File file;
-    private static Plugin p = Main.PLUGIN;
+    private String fileName;
+    private FileConfiguration conf;
+    private File file;
+    private Plugin p = Main.PLUGIN;
 
     public ConfigFile(String fileName, FileConfiguration conf)
     {
@@ -21,13 +21,13 @@ public class ConfigFile {
 
     }
 
-    public static FileConfiguration create()
+    public FileConfiguration create()
     {
         createConfig();
         return conf;
     }
 
-    private static void createConfig()
+    private void createConfig()
     {
         try {
         file = new File(p.getDataFolder()+ fileName + ".yml");

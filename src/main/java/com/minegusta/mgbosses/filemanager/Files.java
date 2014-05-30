@@ -4,11 +4,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class Files {
 
-    private static FileConfiguration bossList, dropList;
+    private FileConfiguration bossList, dropList;
 
     //Boss configs -----------------------------------------------------------------------
 
-    private static void bossConfig()
+    private void bossConfig()
     {
         ConfigFile bosses = new ConfigFile("Bosses", bossList);
         bossList = bosses.create();
@@ -16,7 +16,7 @@ public class Files {
 
     //Drop configs -----------------------------------------------------------------------
 
-    private static void dropConfig()
+    private void dropConfig()
     {
         ConfigFile drops = new ConfigFile("DropList", dropList);
         dropList = drops.create();
@@ -24,18 +24,18 @@ public class Files {
 
     //Public -----------------------------------------------------------------------------
 
-    public static void loadConfigFiles()
+    public void loadConfigFiles()
     {
         dropConfig();
         bossConfig();
     }
 
-    public static FileConfiguration getBossConfig()
+    public FileConfiguration getBossConfig()
     {
         return bossList;
     }
 
-    public static FileConfiguration getDropList()
+    public FileConfiguration getDropList()
     {
         return dropList;
     }
