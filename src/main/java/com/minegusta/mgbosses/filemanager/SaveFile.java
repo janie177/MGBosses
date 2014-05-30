@@ -15,9 +15,16 @@ public class SaveFile {
 
     public SaveFile(String fileName, FileConfiguration conf)
     {
-        try {
-            file = new File(PLUGIN.getDataFolder(), fileName + ".yml");
-            conf.save(file);
+        this.conf = conf;
+        this.fileName = fileName;
+        saveFile();
+    }
+
+    private void saveFile()
+    {
+    try {
+        file = new File(PLUGIN.getDataFolder(), fileName + ".yml");
+        conf.save(file);
 
         } catch (Exception e) {
             e.printStackTrace();
