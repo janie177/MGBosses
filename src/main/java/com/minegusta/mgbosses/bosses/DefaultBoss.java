@@ -12,6 +12,10 @@ public interface DefaultBoss {
 
     public EntityType getMob();
 
-    public List<Integer> getDrops();
+    public String getDropList();
+
+    public List<String> getAbilities();
+
+    public String getDeathMessage();
 
 }

@@ -8,10 +8,10 @@ import java.io.File;
 
 public class SaveFile {
 
-    private String fileName;
-    private File file;
-    private FileConfiguration conf;
-    private Plugin PLUGIN = Main.PLUGIN;
+    private static String fileName;
+    private static File file;
+    private static FileConfiguration conf;
+    private static Plugin PLUGIN = Main.PLUGIN;
 
     public SaveFile(String fileName, FileConfiguration conf)
     {

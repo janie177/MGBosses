@@ -1,0 +1,12 @@
+ZombieKing:
+  name: 'ZombieKing'
+  health: 200
+  mob: GIANTZOMBIE
+  damage: 5
+  deathmessage: 'Well you suck.'
+  droplist: 'giantdrops'
+  abilities:
+    - fireball
+    - confuse
+    - hunger
+    - slow
