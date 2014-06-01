@@ -14,6 +14,7 @@ public class Boss implements DefaultBoss{
     private String deathMessage;
     private double damage;
     private int abilityChance;
+    private boolean isWither;
     BossFileManager m = new BossFileManager();
 
     public Boss(String bossName)
@@ -26,6 +27,7 @@ public class Boss implements DefaultBoss{
         droplist = m.getDropList(bossName);
         deathMessage = m.getDeathMessage(bossName);
         abilities = m.getAbilities(bossName);
+        this.isWither = m.isWither(bossName);
     }
 
     @Override
@@ -74,5 +76,10 @@ public class Boss implements DefaultBoss{
     public int getAbilityChance()
     {
         return abilityChance;
+    }
+
+    @Override
+    public boolean isWither() {
+        return true;
     }
 }

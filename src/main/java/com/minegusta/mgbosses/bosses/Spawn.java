@@ -6,6 +6,7 @@ import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Skeleton;
 
 public class Spawn {
 
@@ -33,6 +34,11 @@ public class Spawn {
         if(TempData.isSpawned.get(boss.getName()))return;
 
         LivingEntity entity = (LivingEntity) w.spawnEntity(l, boss.getMob());
+        if(boss.isWither())
+        {
+            Skeleton skele = (Skeleton) entity;
+            skele.setSkeletonType(Skeleton.SkeletonType.WITHER);
+        }
         entity.setCustomName(ChatColor.translateAlternateColorCodes('&', boss.getName()));
         entity.setCustomNameVisible(true);
         entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.CLOUD, 0,0,3,3,3,1,30,25);

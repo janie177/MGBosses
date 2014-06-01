@@ -21,6 +21,11 @@ Skeletor:
   abilities:
     - 'Poison'
 
+## Abilitychance is chance on in %. 100 = always run ability. 0 = never. 50 = half the time.
+## Health = half a heart. So 20 health = 10 hearts.
+## Damage = half a heart. So 10 damage = 5 hearts.
+## All powers go under ability. It's case insensitive.
+
 
 ## Powers -------------------------------------------
 ##  - Explode -- Explodes the area, dealing damage to everything.
@@ -81,7 +86,7 @@ Skeletor:
 ##  - WitchHorde -- Spawn 4 witches.
 ##  - LargeWitchHorde -- Spawn 8 witches.
 ##  - WitherSkeletonHorde -- spawn 4 wither skeletons.
-##  - LargeWitherSkeletonHorde -- Spawn 10 wither Skeletons.
+##  - LargeWitherSkeletonHorde -- Spawn 10 wither skeletons.
 ##  - MagmaCubeHorde -- Spawn 3 magma cubes.
 ##  - LargeMagmaCubeHorde -- Spawn 7 magma cubes.
 ##  - ZombiePigManHorde -- Spawn 8 zombie pig men.

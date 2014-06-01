@@ -62,7 +62,7 @@ public class BossDeath {
             if(ent instanceof Player)
             {
                 Player p = (Player) ent;
-                p.sendMessage(ChatColor.RED + message);
+                p.sendMessage(ChatColor.RED + "[" + e.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + message);
 
             }
         }

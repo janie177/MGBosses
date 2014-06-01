@@ -22,4 +22,6 @@ public interface DefaultBoss {
 
     public int getAbilityChance();
 
+    public boolean isWither();
+
 }

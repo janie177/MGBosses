@@ -1,6 +1,7 @@
 package com.minegusta.mgbosses.util;
 
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Skeleton;
 
 public enum StringToMob {
 
@@ -19,6 +20,7 @@ public enum StringToMob {
     CHICKEN(EntityType.CHICKEN),
     GIANT(EntityType.GIANT),
     SKELETON(EntityType.SKELETON),
+    WITHER_SKELETON(EntityType.SKELETON, Skeleton.SkeletonType.WITHER),
     SPIDER(EntityType.SPIDER),
     CAVE_SPIDER(EntityType.CAVE_SPIDER),
     SILVERFISH(EntityType.SILVERFISH),
@@ -37,6 +39,13 @@ public enum StringToMob {
 
 
     private EntityType e;
+    Skeleton.SkeletonType skeleton = null;
+
+    private StringToMob(EntityType e, Skeleton.SkeletonType skeleton)
+    {
+        this.e = e;
+        this.skeleton = skeleton;
+    }
 
     private StringToMob(EntityType e)
     {
@@ -46,5 +55,10 @@ public enum StringToMob {
     public EntityType get()
     {
         return e;
+    }
+
+    public boolean isWither()
+    {
+        return skeleton != null;
     }
 }

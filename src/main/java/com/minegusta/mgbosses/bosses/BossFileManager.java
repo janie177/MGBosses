@@ -33,6 +33,11 @@ public class BossFileManager {
         return StringToMob.valueOf(conf().getString(bossName + ".mob").toUpperCase()).get();
     }
 
+    public boolean isWither(String bossName)
+    {
+        return StringToMob.valueOf(conf().getString(bossName + ".mob").toUpperCase()).isWither();
+    }
+
     public double getDamage(String bossName)
     {
         if(!conf().isSet(bossName + ".damage"))return 4;
