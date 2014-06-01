@@ -28,6 +28,7 @@ public class Spawn {
         if(!m.bossExists(bossName))return;
 
         Boss boss = new Boss(bossName);
+        if(!TempData.isSpawned.containsKey(boss.getName()))TempData.isSpawned.put(boss.getName(), false);
         if(TempData.isSpawned.get(boss.getName()))return;
 
         LivingEntity entity = (LivingEntity) w.spawnEntity(l, boss.getMob());
