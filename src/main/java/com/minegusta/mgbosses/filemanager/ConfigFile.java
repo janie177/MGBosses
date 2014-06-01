@@ -31,7 +31,7 @@ public class ConfigFile {
     private void createConfig()
     {
         try {
-        file = new File(p.getDataFolder()+ fileName + ".yml");
+        file = new File(p.getDataFolder(), fileName + ".yml");
         if (!file.exists()) {
             file.createNewFile();
         }
