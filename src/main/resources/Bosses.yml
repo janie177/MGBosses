@@ -7,4 +7,4 @@ ZombieKing:
   droplist: 'giantdrops'
   abilitychance: 50
   abilities:
-    - Poison
+    - 'Poison'
