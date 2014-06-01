@@ -9,10 +9,7 @@ import com.minegusta.mgbosses.util.SignCreation;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
-import org.bukkit.event.entity.EntityDamageByBlockEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class BossListener implements Listener {
@@ -41,6 +38,17 @@ public class BossListener implements Listener {
         }
 
 
+    }
+
+    //Potion throw power listener
+    @EventHandler
+    public void onPotionBounce(PotionSplashEvent e)
+    {
+        PotionBounce bounce = new PotionBounce(e);
+        if(bounce.isBoss())
+        {
+            bounce.bouncePotions();
+        }
     }
 
 
