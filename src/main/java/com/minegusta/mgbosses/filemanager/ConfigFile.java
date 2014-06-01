@@ -23,6 +23,7 @@ public class ConfigFile {
 
     public FileConfiguration create()
     {
+        createDataFolder();
         createConfig();
         return conf;
     }
@@ -38,6 +39,18 @@ public class ConfigFile {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void createDataFolder()
+    {
+        try {
+            if (!p.getDataFolder().exists()) {
+                p.getDataFolder().mkdirs();
+            }
+        }catch(Exception error)
+        {
+            error.printStackTrace();
         }
     }
 }
