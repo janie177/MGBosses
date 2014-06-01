@@ -1,8 +1,18 @@
 ZombieKing:
-  name: '&4ZombieKing'
+  name: 'ZombieKing'
   health: 200
   mob: GIANT
   damage: 5
+  deathmessage: 'Well, you suck.'
+  droplist: 'giantdrops'
+  abilitychance: 50
+  abilities:
+    - 'Poison'
+Skeletor:
+  name: '&cSkeletor'
+  health: 150
+  mob: SKELETON
+  damage: 6
   deathmessage: 'Well, you suck.'
   droplist: 'giantdrops'
   abilitychance: 50

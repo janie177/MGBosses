@@ -28,11 +28,13 @@ public class Spawn {
         if(!m.bossExists(bossName))return;
 
         Boss boss = new Boss(bossName);
+
         if(!TempData.isSpawned.containsKey(boss.getName()))TempData.isSpawned.put(boss.getName(), false);
         if(TempData.isSpawned.get(boss.getName()))return;
 
         LivingEntity entity = (LivingEntity) w.spawnEntity(l, boss.getMob());
         entity.setCustomName(ChatColor.translateAlternateColorCodes('&', boss.getName()));
+        entity.setCustomNameVisible(true);
         entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.CLOUD, 0,0,3,3,3,1,30,25);
 
         TempData.boss.put(entity.getUniqueId(), boss);
