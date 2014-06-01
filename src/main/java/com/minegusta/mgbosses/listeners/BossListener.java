@@ -3,6 +3,7 @@ package com.minegusta.mgbosses.listeners;
 import com.minegusta.mgbosses.damage.Damage;
 import com.minegusta.mgbosses.death.BossDeath;
 import com.minegusta.mgbosses.health.BossHealth;
+import com.minegusta.mgbosses.powers.AbilityManager;
 import com.minegusta.mgbosses.signspawn.SpawnBoss;
 import com.minegusta.mgbosses.util.SignCreation;
 import org.bukkit.event.EventHandler;
@@ -17,7 +18,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class BossListener implements Listener {
 
 
-    //Damage from other entities. Also boss damage to others.
+    //Damage from other entities. Also boss damage to others and Abilities.
     @EventHandler
     public void onBossDamage(EntityDamageByEntityEvent e)
     {
@@ -28,9 +29,15 @@ public class BossListener implements Listener {
         }
 
         Damage damage = new Damage(e);
-        if(damage.isBossMob() && damage.victimIsHuman())
+        if(damage.isArrow() && damage.isBossMob() && damage.victimIsHuman())
         {
             damage.applyDamage();
+        }
+
+        AbilityManager ability = new AbilityManager(e);
+        if(ability.isBossMob() && ability.isPlayer())
+        {
+            ability.runAbility();
         }
 
 

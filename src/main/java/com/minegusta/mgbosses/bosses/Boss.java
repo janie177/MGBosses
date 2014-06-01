@@ -13,14 +13,16 @@ public class Boss implements DefaultBoss{
     private List<String> abilities;
     private String deathMessage;
     private double damage;
+    private int abilityChance;
     BossFileManager m = new BossFileManager();
 
     public Boss(String bossName)
     {
         this.bossName = m.getName(bossName);
-        this.damage = m.getDamage(bossName);
+        damage = m.getDamage(bossName);
         health = m.getHealth(bossName);
         mob = m.getMob(bossName);
+        abilityChance = m.getAbilityChance(bossName);
         droplist = m.getDropList(bossName);
         deathMessage = m.getDeathMessage(bossName);
         abilities = m.getAbilities(bossName);
@@ -66,5 +68,11 @@ public class Boss implements DefaultBoss{
     public String getDeathMessage()
     {
         return deathMessage;
+    }
+
+    @Override
+    public int getAbilityChance()
+    {
+        return abilityChance;
     }
 }

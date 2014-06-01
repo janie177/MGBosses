@@ -56,6 +56,12 @@ public class BossFileManager {
         return  conf().getString(bossName + ".deathmessage");
     }
 
+    public int getAbilityChance(String bossName)
+    {
+        if(!conf().isSet("abilitychance"))return 10;
+        return conf().getInt(bossName + ".abilitychance");
+    }
+
     public boolean bossExists(String bossName)
     {
         return conf().isSet(bossName);

@@ -20,4 +20,6 @@ public interface DefaultBoss {
 
     public String getDeathMessage();
 
+    public int getAbilityChance();
+
 }
