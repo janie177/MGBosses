@@ -34,7 +34,7 @@ public class ConfigFile {
         file = new File(p.getDataFolder(), fileName + ".yml");
         if (!file.exists()) {
             file.createNewFile();
-            p.saveResource(fileName, true);
+            p.saveResource(fileName + ".yml", true);
         }
         conf = YamlConfiguration.loadConfiguration(file);
 

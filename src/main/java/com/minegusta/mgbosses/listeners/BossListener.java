@@ -97,7 +97,7 @@ public class BossListener implements Listener {
     public void onSignplace(SignChangeEvent e)
     {
         SignCreation sign = new SignCreation(e);
-        if(sign.isOP() && sign.isBossSign())
+        if(sign.isBossSign() && !sign.isOP())
         {
             sign.cancel();
         }
