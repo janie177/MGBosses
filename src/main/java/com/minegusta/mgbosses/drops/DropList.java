@@ -11,11 +11,11 @@ import java.util.Random;
 public class DropList {
 
     private String dropList;
-    FileConfiguration conf = Files.getDropList();
+    private FileConfiguration conf = Files.getDropList();
 
-    private DropList(String dropList)
+    public DropList(String dropList)
     {
-     this.dropList = dropList;
+        this.dropList = dropList;
     }
 
     public ItemStack get()
@@ -25,7 +25,7 @@ public class DropList {
 
     private ItemStack getDrop()
     {
-        ItemStack i = null;
+        ItemStack i;
         if(conf.isSet(dropList))
         {
             List<String> drops = (List<String>) conf.getList(dropList);

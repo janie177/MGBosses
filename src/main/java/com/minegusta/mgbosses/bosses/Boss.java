@@ -1,6 +1,5 @@
 package com.minegusta.mgbosses.bosses;
 
-import com.minegusta.mgbosses.util.TempData;
 import org.bukkit.entity.EntityType;
 
 import java.util.List;
@@ -13,11 +12,13 @@ public class Boss implements DefaultBoss{
     private String droplist;
     private List<String> abilities;
     private String deathMessage;
+    private double damage;
     BossFileManager m = new BossFileManager();
 
     public Boss(String bossName)
     {
-        this.bossName = bossName;
+        this.bossName = m.getName(bossName);
+        this.damage = m.getDamage(bossName);
         health = m.getHealth(bossName);
         mob = m.getMob(bossName);
         droplist = m.getDropList(bossName);
@@ -26,7 +27,7 @@ public class Boss implements DefaultBoss{
     }
 
     @Override
-    public String getname()
+    public String getName()
     {
         return bossName;
     }
@@ -35,6 +36,12 @@ public class Boss implements DefaultBoss{
     public double getHealth()
     {
         return health;
+    }
+
+    @Override
+    public double getDamage()
+    {
+        return damage;
     }
 
     @Override

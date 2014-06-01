@@ -39,7 +39,7 @@ public class BossHealth {
     }
 
     //Checks
-    boolean isBoss()
+    public boolean isBoss()
     {
         return TempData.boss.containsKey(uuid);
     }
@@ -55,7 +55,7 @@ public class BossHealth {
 
     //Do damage
 
-    void damage()
+    public void damage()
     {
         if(!TempData.bossHealthMap.containsKey(uuid))return;
         double health = TempData.bossHealthMap.get(uuid);

@@ -56,5 +56,10 @@ public class BossFileManager {
         return  conf().getString(bossName + ".deathmessage");
     }
 
+    public boolean bossExists(String bossName)
+    {
+        return conf().isSet(bossName);
+    }
+
 
 }
