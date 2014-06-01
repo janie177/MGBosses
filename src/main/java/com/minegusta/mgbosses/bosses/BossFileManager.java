@@ -1,6 +1,7 @@
 package com.minegusta.mgbosses.bosses;
 
 import com.minegusta.mgbosses.filemanager.Files;
+import com.minegusta.mgbosses.util.StringToMob;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
@@ -29,7 +30,7 @@ public class BossFileManager {
     public EntityType getMob(String bossName)
     {
         if(!conf().isSet(bossName + ".mob"))return EntityType.ZOMBIE;
-        return (EntityType) conf().get(bossName + ".mob");
+        return StringToMob.valueOf(conf().getString(bossName + ".mob").toUpperCase()).get();
     }
 
     public double getDamage(String bossName)

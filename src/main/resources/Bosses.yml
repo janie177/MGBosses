@@ -1,7 +1,7 @@
 ZombieKing:
   name: '&4ZombieKing'
   health: 200
-  mob: GIANTZOMBIE
+  mob: GIANT
   damage: 5
   deathmessage: 'Well, you suck.'
   droplist: 'giantdrops'
