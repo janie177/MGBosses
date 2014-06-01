@@ -5,6 +5,18 @@ import org.bukkit.entity.EntityType;
 public enum StringToMob {
 
     ZOMBIE(EntityType.ZOMBIE),
+    ENDER_DRAGON(EntityType.ENDER_DRAGON),
+    COW(EntityType.COW),
+    PIG(EntityType.PIG),
+    SHEEP(EntityType.SHEEP),
+    MUSHROOM_COW(EntityType.MUSHROOM_COW),
+    VILLAGER(EntityType.VILLAGER),
+    SQUID(EntityType.SQUID),
+    OCELOT(EntityType.OCELOT),
+    BAT(EntityType.BAT),
+    HORSE(EntityType.HORSE),
+    SNOWMAN(EntityType.SNOWMAN),
+    CHICKEN(EntityType.CHICKEN),
     GIANT(EntityType.GIANT),
     SKELETON(EntityType.SKELETON),
     SPIDER(EntityType.SPIDER),

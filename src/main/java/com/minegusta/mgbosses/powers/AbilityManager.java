@@ -73,7 +73,7 @@ public class AbilityManager {
         if(!(abilityChance > chance))return;
 
         chance = rand.nextInt(abilities.size());
-        Ability skill = Abilities.valueOf(abilities.get(chance)).get();
+        Ability skill = Abilities.valueOf(abilities.get(chance).toLowerCase()).get();
         skill.run(p, entity, damage);
 
     }

@@ -5,7 +5,6 @@ import org.bukkit.entity.Player;
 
 public interface Ability {
 
-    public String getName();
-
     public void run(Player p, LivingEntity entity, double damage);
+
 }

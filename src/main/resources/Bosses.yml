@@ -1,20 +1,107 @@
 ZombieKing:
-  name: 'ZombieKing'
+  name: '&2ZombieKing'
   health: 200
   mob: GIANT
   damage: 5
-  deathmessage: 'Well, you suck.'
-  droplist: 'giantdrops'
+  deathmessage: 'NOOOOOOOOOOOOOOOOOOOOOO.'
+  droplist: 'default'
   abilitychance: 50
   abilities:
     - 'Poison'
+    - 'SelfStrength'
+    - 'LargeZombieHorde'
 Skeletor:
   name: '&cSkeletor'
   health: 150
   mob: SKELETON
   damage: 6
   deathmessage: 'Well, you suck.'
-  droplist: 'giantdrops'
+  droplist: 'default'
   abilitychance: 50
   abilities:
     - 'Poison'
+
+
+## Powers -------------------------------------------
+##  - Explode -- Explodes the area, dealing damage to everything.
+##  - Launch -- Launch the player.
+##  - DamagePotionRain -- Launch potions that split into more potions on impact.
+##  - SlownessPotionRain -- Launch potions that split into more potions on impact.
+##  - PoisonPotionRain -- Launch potions that split into more potions on impact.
+##  - WeaknessPotionRain -- Launch potions that split into more potions on impact.
+##  - ArrowRain -- Rain down arrows on the player.
+##  - Lightning -- Shoot lightning at the player.
+##  - SmokeScreen -- Smoke rises from the ground.
+##  - ExplodeOnDeath -- Boss explodes on death with a 10 second countdown.
+##  - BringPlayer -- The player damaging the boss is teleported to the boss.
+##  - FireBall -- The boss fires a fireball at the Player.
+##  - FireBarrage -- The boss fires alot of fireballs at the player.
+##  - GearUp -- The boss clones the players armour! (Skeleton and Zombie bosses only!).
+##  - CloneWeapon -- The boss clones the players weapon! (Skeleton and Zombie bosses only!).
+##  - Switch -- The player and boss switch positions.
+##  - FireRing -- The boss summons an expanding ring of fire.
+##  - Slam -- The boss jumps in the air and slams down causing explosions which slow the player.
+##  - Bleed -- Causes the player to bleed over a few seconds.
+##  - Taunt -- Shows the player a random discouraging line of text.
+##  - SquidRain -- Squids rain from the sky, falling on the player.
+##  - Trap -- The boss launches an arrow that traps the target in a web.
+##  - Fire -- Sets the player on fire.
+##  - SummonOwl -- The owl (LordKuso) is teleported to you if online, to aid you in combat.. or kill you.
+##  - Disarm -- Puts the players weapon in their inventory.
+##  - RemoveArmour -- Puts the players armour in their inventory.
+##  - Nuke -- Nukes the player.
+##  - Entangle -- The player cannot move for a few seconds.
+##  - Choke -- Chokes the player.
+
+
+## Mob Spawn Abilities ------------------------------
+##  - SkeletonHorde -- Spawn 8 skeletons.
+##  - LargeSkeletonHorde -- Spawn 16 skeletons.
+##  - CreeperHorde -- Spawn 5 creepers.
+##  - LargeCreeperHorde -- Spawn 10 powered creepers.
+##  - SpiderHorde -- spawn 8 spiders.
+##  - LargeSpiderHorde -- Spawn 16 spiders.
+##  - CaveSpiderHorde -- Spawn 8 cave spiders.
+##  - LargeCaveSpiderHorde -- Spawn 16 cave spiders.
+##  - ZombieMinions -- Spawn baby zombies around the boss.
+##  - ZombieHorde -- Spawn 8 Zombies.
+##  - LargeZombieHorde -- Spawn 15 zombies.
+##  - SlimeHorde -- Spawn 4 slimes.
+##  - LargeSlimeHorde -- Spawn 8 slimes.
+##  - EnderManHorde -- Spawn 8 endermen.
+##  - LargeEnderManHorde -- Spawn 16 endermen.
+##  - SilverFishHorde -- Spawn 8 silverfish.
+##  - LargeSilverfishHorde -- Spawn 16 silverfish.
+##  - GhastHorde -- Spawn 4 ghasts.
+##  - LargeGhastHorde -- Spawn 8 Ghasts.
+##  - BlazeHorde -- Spawn 6 blazes.
+##  - LargeBlazeHorde -- Spawn 10 blazes.
+##  - WolfHorde -- Spawn 6 angry wolves.
+##  - LargeWolfHorde -- Spawn 12 angry wolves.
+##  - WitchHorde -- Spawn 4 witches.
+##  - LargeWitchHorde -- Spawn 8 witches.
+##  - WitherSkeletonHorde -- spawn 4 wither skeletons.
+##  - LargeWitherSkeletonHorde -- Spawn 10 wither Skeletons.
+##  - MagmaCubeHorde -- Spawn 3 magma cubes.
+##  - LargeMagmaCubeHorde -- Spawn 7 magma cubes.
+##  - ZombiePigManHorde -- Spawn 8 zombie pig men.
+##  - LargeZombiePigManHorde -- Spawn 14 zombie pig men.
+##  - BatShield -- The boss spawns a few bats.
+##  - Cage -- Spawn 10 villagers named Nicolas Cage.
+
+## PotionEffect Powers ------------------------------
+##  - Hunger
+##  - Poison
+##  - Slow
+##  - Wither
+##  - Blind
+##  - Weakness
+
+## PotionEffect On Self Powers ----------------------
+##  - SelfStrength
+##  - SelfSpeed
+##  - SelfJump
+##  - SelfFireResistance
+##  - SelfDamageResistance
+##  - SelfInvisibility
+##  - SelfRegeneration

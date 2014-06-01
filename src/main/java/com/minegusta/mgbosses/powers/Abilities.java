@@ -1,11 +1,15 @@
 package com.minegusta.mgbosses.powers;
 
 import com.minegusta.mgbosses.powers.abilities.Ability;
-import com.minegusta.mgbosses.powers.abilities.Poison;
+import com.minegusta.mgbosses.powers.abilities.Explode;
+import com.minegusta.mgbosses.powers.abilities.effects.Poison;
 
 public enum Abilities {
 
-    Poison(new Poison());
+    //Make sure they are lowercase!!!!
+
+    explode(new Explode()),
+    poison(new Poison());
 
 
     Ability abilityClass;
