@@ -3,13 +3,13 @@ package com.minegusta.mgbosses.powers.abilities;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-/**
- * Created by Jan on 1-6-2014.
- */
 public class Fire implements Ability{
 
     @Override
     public void run(Player p, LivingEntity entity, double damage) {
-
+        
+        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Burn!");
+        //TODO Set player on fire, idk how at this time. p.ignite(); ???
+        
     }
 }

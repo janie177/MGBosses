@@ -7,5 +7,6 @@ public class SquidRain implements Ability{
 
     @Override
     public void run(Player p, LivingEntity entity, double damage) {
+
     }
 }
