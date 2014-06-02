@@ -1,38 +1,43 @@
 package com.minegusta.mgbosses.powers.abilities;
 
+import com.minegusta.mgbosses.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-/**
- * Created by Jan on 1-6-2014.
- */
 public class ExplodeOnDeath implements Ability
 {
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) 
+    public void run(Player player, LivingEntity entity, double damage)
     {
         
         if(entity.getHealth() == 0)
         {
-            p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "IF I GO, SO WIL YOU!");
+            player.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "IF I GO, SO WIL YOU!");
             
-        final Location target = entity.getLocation();
-        final World world = p.getWorld();
+        final Location l = entity.getLocation();
+        final World world = player.getWorld();
+        final Player p = player;
+        final LivingEntity le = entity;
+
         for (int i = 0; i < 11; i++) {
             final int k = i;
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(MausWasHere.PLUGIN, new Runnable() {
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
 
-                        @Override
-                        public void run() {
-							p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + 10 - k);
-                            if(k == 10)
-                            {
-                                world.createExplosion(location, Explosion.LARGE, false);
-                            }
-                        }
+                @Override
+                public void run() {
+                    p.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + (10 - k));
+                    if (k == 10) {
+                        world.createExplosion(l.getX(), l.getY(), l.getZ(), 2.5F, false, false);
+                    }
+                }
 
-                    }, i);
+            }, i);
+            }
         
         }
     }

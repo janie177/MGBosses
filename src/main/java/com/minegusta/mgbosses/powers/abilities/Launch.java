@@ -1,7 +1,9 @@
 package com.minegusta.mgbosses.powers.abilities;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 public class Launch implements Ability{
 
