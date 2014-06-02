@@ -14,15 +14,15 @@ import java.util.UUID;
 
 public class PotionBounce {
 
-    private ThrownPotion p;
+
     private UUID uuid;
+    private LivingEntity le;
     private PotionSplashEvent e;
     private ProjectileSource source;
 
     public PotionBounce(PotionSplashEvent e)
     {
         this.source = e.getEntity().getShooter();
-        this.p = e.getPotion();
         this.e = e;
     }
 
@@ -33,7 +33,7 @@ public class PotionBounce {
     {
         if(source instanceof LivingEntity)
         {
-            LivingEntity le = (LivingEntity) source;
+            le = (LivingEntity) source;
             uuid = le.getUniqueId();
             if(TempData.boss.containsKey(uuid))
             {
@@ -50,7 +50,7 @@ public class PotionBounce {
         Random rand = new Random();
         ThrownPotion potion = e.getPotion();
         World world = e.getEntity().getWorld();
-        for (int le = 0; le < 4; le++) {
+        for (int i = 0; i < 4; i++) {
             ThrownPotion clone = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
             Vector v = new Vector(rand.nextDouble() / 10, 0.5, rand.nextDouble() / 10);
             clone.setVelocity(v);

@@ -1,10 +1,7 @@
 package com.minegusta.mgbosses.powers.abilities;
 
 import com.minegusta.mgbosses.Main;
-import org.bukkit.Bukkit;
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
@@ -23,6 +20,8 @@ public class Nuke implements Ability{
                 }
             }, i);
         }
+        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "DESTRUCTION!!");
+
 
     }
 
