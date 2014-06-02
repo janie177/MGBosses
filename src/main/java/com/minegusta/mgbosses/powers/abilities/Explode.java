@@ -12,7 +12,7 @@ public class Explode implements Ability{
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "BOOM!");
 
         //TODO Not sure if this will work
-        p.getLocation().createExplosion(Explosion.NORMAL, false);
+        p.getWorld().createExplosion(p.getLocation(), Explosion.NORMAL, false);
 
     }
 }
