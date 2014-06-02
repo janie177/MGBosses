@@ -9,7 +9,7 @@ public class Fire implements Ability{
     public void run(Player p, LivingEntity entity, double damage) {
         
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Burn!");
-        //Set player on fire, idk how at this time. p.ignite(); ???
+        //TODO Set player on fire, idk how at this time. p.ignite(); ???
         
     }
 }
