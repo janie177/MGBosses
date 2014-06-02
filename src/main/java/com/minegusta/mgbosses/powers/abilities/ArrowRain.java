@@ -3,6 +3,7 @@ package com.minegusta.mgbosses.powers.abilities;
 import com.minegusta.mgbosses.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -13,19 +14,21 @@ public class ArrowRain implements Ability{
     @Override
     public void run(Player p, LivingEntity entity, double damage)
     {
-    final Player player = p;
+
+        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "That's right! Keep running!!");
+
     final World world = p.getWorld();
-    final LivingEntity le = entity;
-    for (int i = 0; i < 21; i++)
+    for (int i = 0; i < 20 * 8; i++)
 
     {
+        final Location l = p.getLocation();
+        final int k = i;
         Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
 
             @Override
             public void run() {
-                world.spawnEntity(player.getLocation().add(0, 12, 0), EntityType.ARROW);
+               if(k % 5 == 0) world.spawnEntity(l.add(0, 12, 0), EntityType.ARROW);
 
-                player.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "That's right! Keep running!!");
             }
 
         }, i);

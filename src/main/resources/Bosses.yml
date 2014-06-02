@@ -44,7 +44,6 @@ Skeletor:
 ##  - GearUp -- The boss clones the players armour! (Skeleton and Zombie bosses only!).
 ##  - CloneWeapon -- The boss clones the players weapon! (Skeleton and Zombie bosses only!).
 ##  - Switch -- The player and boss switch positions.
-##  - FireRing -- The boss summons an expanding ring of fire.
 ##  - Slam -- The boss jumps in the air and slams down causing explosions which slow the player.
 ##  - Bleed -- Causes the player to bleed over a few seconds.
 ##  - Taunt -- Shows the player a random discouraging line of text.

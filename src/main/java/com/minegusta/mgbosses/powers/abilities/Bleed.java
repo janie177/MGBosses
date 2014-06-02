@@ -12,6 +12,7 @@ public class Bleed implements Ability{
     @Override
     public void run(Player player, LivingEntity entity, double damage) {
         final Player p = player;
+        p.sendMessage(ChatColor.RED + "You are bleeding!");
         for (int i = 0; i < 80; i++) {
             final int k = i;
                 Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
@@ -20,7 +21,6 @@ public class Bleed implements Ability{
                     public void run() {
                         if (k % 20 == 0)
                         {
-                            p.sendMessage(ChatColor.RED + "You are bleeding!");
                             p.damage(2.0);
                             p.getWorld().spigot().playEffect(p.getLocation(), Effect.CRIT, 0, 0, 1, 1, 1, 1, 15, 25);
                         }

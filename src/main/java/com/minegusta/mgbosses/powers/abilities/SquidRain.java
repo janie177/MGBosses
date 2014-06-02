@@ -14,17 +14,19 @@ public class SquidRain implements Ability{
     public void run(Player p, LivingEntity entity, double damage) {
         final Player player = p;
         final World world = p.getWorld();
-        final LivingEntity le = entity;
-        for (int i = 0; i < 21; i++)
+        player.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "I'm even better than Aquaman!");
+
+        for (int i = 0; i < 20 * 9; i++)
 
         {
+            final int k = i;
             Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
 
                 @Override
                 public void run() {
-                    world.spawnEntity(player.getLocation().add(0, 25, 0), EntityType.SQUID);
 
-                    player.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "I'm even better than Aquaman!");
+                    if(k % 5 == 0) world.spawnEntity(player.getLocation().add(0, 25, 0), EntityType.SQUID);
+
                 }
 
             }, i);

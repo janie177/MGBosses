@@ -15,7 +15,7 @@ public class ExplodeOnDeath implements Ability
     public void run(Player player, LivingEntity entity, double damage)
     {
         
-        if(entity.getHealth() == 0)
+        if(entity.isDead())
         {
             player.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "IF I GO, SO WIL YOU!");
             
@@ -24,19 +24,18 @@ public class ExplodeOnDeath implements Ability
         final Player p = player;
         final LivingEntity le = entity;
 
-        for (int i = 0; i < 11; i++) {
-            final int k = i;
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
+            for (int i = 0; i < 20 * 11; i++) {
+                final int k = i;
+                Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
 
-                @Override
-                public void run() {
-                    p.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + (10 - k));
-                    if (k == 10) {
-                        world.createExplosion(l.getX(), l.getY(), l.getZ(), 2.5F, false, false);
+                    @Override
+                    public void run() {
+                        if(k % 20 == 0)p.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + ((200 - k)/ 20));
+                        if (k == 200) {
+                            world.createExplosion(l.getX(), l.getY(), l.getZ(), 3.0F, false, false);
+                        }
                     }
-                }
-
-            }, i);
+                }, i);
             }
         
         }
