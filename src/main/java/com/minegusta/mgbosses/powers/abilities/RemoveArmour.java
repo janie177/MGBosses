@@ -29,7 +29,7 @@ public class RemoveArmour implements Ability{
                 int get = i - 1;
                 if(get == -1) get = 0;
                 p.getInventory().addItem(list.get((get)));
-                list.remove(i-1);
+                list.remove(get);
             }
         }
         p.getEquipment().setArmorContents(new ItemStack[list.size()]);
