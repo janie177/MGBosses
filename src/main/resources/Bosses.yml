@@ -37,7 +37,7 @@ Skeletor:
     - 'FireBarrage'
     - 'RemoveArmour'
     - 'Slam'
-    - 'Switch'
+    - 'SwitchLocation'
     - 'ArrowRain'
     - 'Lightning'
 
@@ -88,7 +88,7 @@ Skeletor:
 ##  - FireBarrage -- The boss fires alot of fireballs at the player.
 ##  - GearUp -- The boss clones the players armour! (Skeleton and Zombie bosses only!).
 ##  - CloneWeapon -- The boss clones the players weapon! (Skeleton and Zombie bosses only!).
-##  - Switch -- The player and boss switch positions.
+##  - SwitchLocation -- The player and boss switch positions.
 ##  - Slam -- The boss jumps in the air and slams down causing explosions which slow the player.
 ##  - Bleed -- Causes the player to bleed over a few seconds.
 ##  - Taunt -- Shows the player a random discouraging line of text.

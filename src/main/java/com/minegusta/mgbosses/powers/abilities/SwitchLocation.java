@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public class Switch implements Ability{
+public class SwitchLocation implements Ability{
 
     @Override
     public void run(Player p, LivingEntity entity, double damage) {

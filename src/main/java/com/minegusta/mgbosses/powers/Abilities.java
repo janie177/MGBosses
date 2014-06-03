@@ -75,7 +75,7 @@ public enum Abilities {
     smokescreen(new SmokeScreen()),
     squidrain(new SquidRain()),
     summonowl(new SummonOwl()),
-    Switch(new Switch()),
+    switchlocation(new SwitchLocation()),
     taunt(new Taunt()),
     weaknesspotionrain(new WeaknessPotionRain());
 
