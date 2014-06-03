@@ -36,7 +36,7 @@ public class ExplodeOnDeath
                                     Player pler = (Player) ert;
                                     if(k == 0)
                                     {
-                                        pler.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "IF I GO, SO WIL YOU!");
+                                        pler.sendMessage(ChatColor.RED + "[" + le.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "IF I GO, SO WILL YOU!");
                                     }
                                     else
                                     {

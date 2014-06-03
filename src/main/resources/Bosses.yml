@@ -22,7 +22,7 @@ Skeletor:
   droplist:
     - 'default'
     - 'specialdrops'
-  abilitychance: 80
+  abilitychance: 100
   abilities:
     - 'Poison'
     - 'Bleed'
@@ -34,7 +34,8 @@ Skeletor:
     - 'FireBarrage'
     - 'RemoveArmour'
     - 'Slam'
-    - 'ExplodeOnDeath'
+    - 'ArrowRain'
+    - 'Lightning'
 
 
 ## Exp is the amount of Exp (not levels) awarded for killing that boss.
