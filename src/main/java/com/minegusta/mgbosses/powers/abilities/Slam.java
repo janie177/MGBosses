@@ -16,7 +16,7 @@ public class Slam implements Ability{
 
     @Override
     public void run(Player p, LivingEntity entity, double damage) {
-
+        entity.teleport(p.getLocation().add(0, 0.5, 0));
         entity.setVelocity(new Vector(0, 20, 0));
 
 
