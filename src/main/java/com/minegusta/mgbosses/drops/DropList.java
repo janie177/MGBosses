@@ -43,10 +43,9 @@ public class DropList {
                 try
                 {
                     i.addUnsafeEnchantment(Enchantment.getById(Integer.parseInt(split[3])), Integer.parseInt(split[4]));
-                } catch (Exception e)
+                } catch (Exception ignored)
                 {
-                    Bukkit.getLogger().info("Error in MGBosses appeared while adding an enchantment!");
-                    e.printStackTrace();
+                    Bukkit.getLogger().info("An error appeared in MGBosses while adding an enchantment!");
                 }
             }
 
