@@ -17,7 +17,7 @@ public class Slam implements Ability{
     @Override
     public void run(Player p, LivingEntity entity, double damage) {
 
-        entity.setVelocity(new Vector(0, 3, 0));
+        entity.setVelocity(new Vector(0, 20, 0));
 
 
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "BODYSLAM!");
@@ -26,6 +26,7 @@ public class Slam implements Ability{
         final World world = p.getWorld();
         final Player player = p;
         final LivingEntity le = entity;
+
 
         for (int i = 0; i < 20 * 3; i++) {
             final int k = i;

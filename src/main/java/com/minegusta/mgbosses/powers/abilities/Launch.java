@@ -12,7 +12,7 @@ public class Launch implements Ability{
     {
         Vector v = p.getVelocity();
         v.setY(3.0);
-        v.multiply(1.9);
+        v.multiply(10);
         p.setVelocity(v);
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Up, up, and away!");
 
