@@ -3,8 +3,10 @@ ZombieKing:
   health: 200
   mob: GIANT
   damage: 5
+  exp: 5
   deathmessage: 'NOOOOOOOOOOOOOOOOOOOOOO.'
-  droplist: 'default'
+  droplist:
+    - 'default'
   abilitychance: 50
   abilities:
     - 'Poison'
@@ -13,18 +15,31 @@ ZombieKing:
 Skeletor:
   name: '&cSkeletor'
   health: 150
+  exp: 6
   mob: SKELETON
   damage: 6
   deathmessage: 'Well, you suck.'
-  droplist: 'default'
+  droplist:
+    - 'default'
+    - 'specialdrops'
   abilitychance: 50
   abilities:
     - 'Poison'
 
+
+## Exp is the amount of Exp (not levels) awarded for killing that boss.
 ## Abilitychance is chance on in %. 100 = always run ability. 0 = never. 50 = half the time.
 ## Health = half a heart. So 20 health = 10 hearts.
 ## Damage = half a heart. So 10 damage = 5 hearts.
 ## All powers go under ability. It's case insensitive.
+## Multiple DropLists can be specified. Please try to keep it around 10% good drops. The rest should be junk.
+## This way, drops wont always be good items. This is to make it more balanced and fun when you get good loot!
+
+## DropLists use the format: 'Item,Amount,Data'
+## You can also use: 'Item,Amount,Data,EnchantMentID,EnchantmentLevel'
+
+## List of Enchantment ID's: http://www.minecraftforum.net/topic/1711629-enchantment-id-list/
+## List of Item ID's: http://www.minecraftinfo.com/idlist.htm
 
 
 ##-------- Example Droplist --------##

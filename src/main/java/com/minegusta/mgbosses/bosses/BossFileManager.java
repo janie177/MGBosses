@@ -44,10 +44,10 @@ public class BossFileManager {
         return conf().getDouble(bossName + ".damage");
     }
 
-    public String getDropList(String bossName)
+    public List<String> getDropList(String bossName)
     {
-        if(!conf().isSet(bossName + ".droplist"))return "default";
-        return conf().getString(bossName + ".droplist");
+        if(!conf().isSet(bossName + ".droplist"))return null;
+        return (List<String>) conf().getList(bossName + ".droplist");
     }
 
     public List<String> getAbilities(String bossName)
@@ -66,6 +66,12 @@ public class BossFileManager {
     {
         if(!conf().isSet("abilitychance"))return 10;
         return conf().getInt(bossName + ".abilitychance");
+    }
+
+    public int getExp(String bossName)
+    {
+        if(!conf().isSet("exp"))return 0;
+        return conf().getInt(bossName + ".exp");
     }
 
     public boolean bossExists(String bossName)

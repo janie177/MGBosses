@@ -9,6 +9,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
 
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class BossDeath {
@@ -37,9 +39,13 @@ public class BossDeath {
     public void slay()
     {
         Boss boss = TempData.boss.get(uuid);
-        sendMessageToPlayers(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity);
+        sendMessageToPlayersAndAwardExp(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity, boss.getExp());
 
-        DropList dropList = new DropList(boss.getDropList());
+        List<String> list = boss.getDropList();
+        Random rand = new Random();
+
+
+        DropList dropList = new DropList(list.get(rand.nextInt(list.size())));
 
         LivingEntity le = (LivingEntity) entity;
         le.getWorld().dropItemNaturally(le.getLocation(), dropList.get());
@@ -55,7 +61,7 @@ public class BossDeath {
         TempData.isSpawned.put(name, false);
     }
 
-    private void sendMessageToPlayers(String message, LivingEntity e)
+    private void sendMessageToPlayersAndAwardExp(String message, LivingEntity e, int exp)
     {
         for(Entity ent : e.getNearbyEntities(15,15,15))
         {
@@ -63,7 +69,7 @@ public class BossDeath {
             {
                 Player p = (Player) ent;
                 p.sendMessage(ChatColor.RED + "[" + e.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + message);
-
+                p.giveExp(exp);
             }
         }
     }

@@ -12,7 +12,7 @@ public interface DefaultBoss {
 
     public EntityType getMob();
 
-    public String getDropList();
+    public List<String> getDropList();
 
     public List<String> getAbilities();
 
@@ -24,4 +24,5 @@ public interface DefaultBoss {
 
     public boolean isWither();
 
+    public int getExp();
 }

@@ -9,11 +9,12 @@ public class Boss implements DefaultBoss{
     private String bossName;
     private double health;
     private EntityType mob;
-    private String droplist;
+    private List<String> droplist;
     private List<String> abilities;
     private String deathMessage;
     private double damage;
     private int abilityChance;
+    private int exp;
     private boolean isWither;
     BossFileManager m = new BossFileManager();
 
@@ -27,7 +28,8 @@ public class Boss implements DefaultBoss{
         droplist = m.getDropList(bossName);
         deathMessage = m.getDeathMessage(bossName);
         abilities = m.getAbilities(bossName);
-        this.isWither = m.isWither(bossName);
+        isWither = m.isWither(bossName);
+        exp = m.getExp(bossName);
     }
 
     @Override
@@ -55,7 +57,7 @@ public class Boss implements DefaultBoss{
     }
 
     @Override
-    public String getDropList()
+    public List<String> getDropList()
     {
         return droplist;
     }
@@ -80,6 +82,11 @@ public class Boss implements DefaultBoss{
 
     @Override
     public boolean isWither() {
-        return true;
+        return isWither;
+    }
+
+    @Override
+    public int getExp() {
+        return exp;
     }
 }
