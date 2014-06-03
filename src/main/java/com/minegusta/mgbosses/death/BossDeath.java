@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
 
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 public class BossDeath {
@@ -39,13 +38,12 @@ public class BossDeath {
     public void slay()
     {
         Boss boss = TempData.boss.get(uuid);
+
         sendMessageToPlayersAndAwardExp(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity, boss.getExp());
 
         List<String> list = boss.getDropList();
-        Random rand = new Random();
 
-
-        DropList dropList = new DropList(list.get(rand.nextInt(list.size())));
+        DropList dropList = new DropList(list);
 
         LivingEntity le = (LivingEntity) entity;
         le.getWorld().dropItemNaturally(le.getLocation(), dropList.get());

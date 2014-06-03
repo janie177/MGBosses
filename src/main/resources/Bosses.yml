@@ -6,7 +6,7 @@ ZombieKing:
   exp: 5
   deathmessage: 'NOOOOOOOOOOOOOOOOOOOOOO.'
   droplist:
-    - 'default'
+    - 'default(50)'
   abilitychance: 50
   abilities:
     - 'Poison'
@@ -14,17 +14,27 @@ ZombieKing:
     - 'LargeZombieHorde'
 Skeletor:
   name: '&cSkeletor'
-  health: 150
-  exp: 6
-  mob: SKELETON
+  health: 40
+  exp: 30
+  mob: WITHER_SKELETON
   damage: 6
   deathmessage: 'Well, you suck.'
   droplist:
     - 'default'
     - 'specialdrops'
-  abilitychance: 50
+  abilitychance: 80
   abilities:
     - 'Poison'
+    - 'Bleed'
+    - 'DamagePotionRain'
+    - 'SmokeScreen'
+    - 'SquidRain'
+    - 'GearUp'
+    - 'Taunt'
+    - 'FireBarrage'
+    - 'RemoveArmour'
+    - 'Slam'
+    - 'ExplodeOnDeath'
 
 
 ## Exp is the amount of Exp (not levels) awarded for killing that boss.

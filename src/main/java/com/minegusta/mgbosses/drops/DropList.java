@@ -1,5 +1,6 @@
 package com.minegusta.mgbosses.drops;
 
+import com.google.common.collect.Lists;
 import com.minegusta.mgbosses.filemanager.Files;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -12,10 +13,10 @@ import java.util.Random;
 
 public class DropList {
 
-    private String dropList;
+    private List<String> dropList;
     private FileConfiguration conf = Files.getDropList();
 
-    public DropList(String dropList)
+    public DropList(List<String> dropList)
     {
         this.dropList = dropList;
     }
@@ -28,28 +29,33 @@ public class DropList {
     private ItemStack getDrop()
     {
         ItemStack i;
-        if(conf.isSet(dropList))
+        List<String> allDrops = Lists.newArrayList();
+
+        for(String list : dropList)
         {
-            List<String> drops = (List<String>) conf.getList(dropList);
-            String[] split = splitToParts(drops);
-
-            Material material = Material.getMaterial(Integer.parseInt(split[0]));
-            int amount = Integer.parseInt(split[1]);
-            short data = (short) Integer.parseInt(split[2]);
-            i = new ItemStack(material, amount, data);
-
-            if(split.length == 5)
+            if(conf.isSet(list))
             {
-                try
-                {
-                    i.addUnsafeEnchantment(Enchantment.getById(Integer.parseInt(split[3])), Integer.parseInt(split[4]));
-                } catch (Exception ignored)
-                {
-                    Bukkit.getLogger().info("An error appeared in MGBosses while adding an enchantment!");
-                }
+                allDrops.addAll((List<String>)conf.getList(list));
             }
-
         }
+        String[] split = splitToParts(allDrops);
+
+        Material material = Material.getMaterial(Integer.parseInt(split[0]));
+        int amount = Integer.parseInt(split[1]);
+        short data = (short) Integer.parseInt(split[2]);
+        i = new ItemStack(material, amount, data);
+
+        if(split.length == 5)
+        {
+            try
+            {
+                i.addUnsafeEnchantment(Enchantment.getById(Integer.parseInt(split[3])), Integer.parseInt(split[4]));
+            } catch (Exception ignored)
+            {
+                Bukkit.getLogger().info("An error appeared in MGBosses while adding an enchantment!");
+            }
+        }
+
         else
         {
             i = new ItemStack(Material.AIR);
