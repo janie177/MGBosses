@@ -26,7 +26,9 @@ public class RemoveArmour implements Ability{
         {
             if(p.getInventory().firstEmpty() != (-1))
             {
-                p.getInventory().addItem(list.get((i-1)));
+                int get = i - 1;
+                if(get == -1) get = 0;
+                p.getInventory().addItem(list.get((get)));
                 list.remove(i-1);
             }
         }

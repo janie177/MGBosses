@@ -55,13 +55,6 @@ public class DropList {
                 Bukkit.getLogger().info("An error appeared in MGBosses while adding an enchantment!");
             }
         }
-
-        else
-        {
-            i = new ItemStack(Material.AIR);
-        }
-
-
         return i;
     }
 
