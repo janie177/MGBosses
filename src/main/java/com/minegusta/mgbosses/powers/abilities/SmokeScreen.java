@@ -22,7 +22,7 @@ public class SmokeScreen implements Ability{
 
                 @Override
                 public void run() {
-                    if(k % 5 == 0)world.spigot().playEffect(target, Effect.PARTICLE_SMOKE, 0, 0, 9, 2, 9, 1, 150, 25);
+                    if(k % 5 == 0)world.spigot().playEffect(target, Effect.PARTICLE_SMOKE, 0, 0, 9, 2, 9, 1, 1000, 25);
                 }
 
             }, i);
