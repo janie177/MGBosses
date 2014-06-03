@@ -25,7 +25,7 @@ public class RemoveArmour implements Ability{
         for(int i = 0; i < 5; i++)
         {
 
-            if(i > list.size()) return;
+            if(i > list.size()) break;
             if(p.getInventory().firstEmpty() != (-1))
             {
                 int get = i - 1;
