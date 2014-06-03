@@ -17,14 +17,14 @@ public class Slam implements Ability{
     @Override
     public void run(Player p, LivingEntity entity, double damage) {
         entity.teleport(p.getLocation().add(0, 0.5, 0));
-        entity.setVelocity(new Vector(0, 20, 0));
+        entity.setVelocity(new Vector(0, 3, 0));
+        entity.setFallDistance(0);
 
 
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "BODYSLAM!");
 
         final Location l = entity.getLocation();
         final World world = p.getWorld();
-        final Player player = p;
         final LivingEntity le = entity;
 
 
