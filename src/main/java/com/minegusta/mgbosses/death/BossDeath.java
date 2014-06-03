@@ -5,10 +5,10 @@ import com.minegusta.mgbosses.drops.DropList;
 import com.minegusta.mgbosses.powers.abilities.ExplodeOnDeath;
 import com.minegusta.mgbosses.util.TempData;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.Material;
+import org.bukkit.entity.*;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 import java.util.UUID;
@@ -46,6 +46,17 @@ public class BossDeath {
         {
             ExplodeOnDeath explode = new ExplodeOnDeath();
             explode.run((LivingEntity)entity);
+        }
+
+        if(entity instanceof Zombie || entity instanceof Skeleton)
+        {
+            ItemStack air = new ItemStack(Material.AIR);
+            LivingEntity le = (LivingEntity) entity;
+            le.getEquipment().setBoots(air);
+            le.getEquipment().setHelmet(air);
+            le.getEquipment().setItemInHand(air);
+            le.getEquipment().setLeggings(air);
+            le.getEquipment().setChestplate(air);
         }
 
         sendMessageToPlayersAndAwardExp(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity, boss.getExp());
