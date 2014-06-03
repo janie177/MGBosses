@@ -2,6 +2,7 @@ package com.minegusta.mgbosses.death;
 
 import com.minegusta.mgbosses.bosses.Boss;
 import com.minegusta.mgbosses.drops.DropList;
+import com.minegusta.mgbosses.powers.abilities.ExplodeOnDeath;
 import com.minegusta.mgbosses.util.TempData;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
@@ -32,12 +33,20 @@ public class BossDeath {
         return TempData.boss.containsKey(uuid);
     }
 
-
     //Death
 
     public void slay()
     {
         Boss boss = TempData.boss.get(uuid);
+
+
+        //Explode on death check
+        for(String s : boss.getAbilities())
+        if(s.equalsIgnoreCase("ExplodeOnDeath"))
+        {
+            ExplodeOnDeath explode = new ExplodeOnDeath();
+            explode.run((LivingEntity)entity);
+        }
 
         sendMessageToPlayersAndAwardExp(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity, boss.getExp());
 

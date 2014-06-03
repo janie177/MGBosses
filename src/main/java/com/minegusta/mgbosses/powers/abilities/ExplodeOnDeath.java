@@ -9,7 +9,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public abstract class ExplodeOnDeath implements Ability
+public class ExplodeOnDeath
 {
     public void run(LivingEntity entity)
     {

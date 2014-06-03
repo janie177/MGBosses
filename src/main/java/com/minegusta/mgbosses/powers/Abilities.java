@@ -61,7 +61,6 @@ public enum Abilities {
     damagepotionrain(new DamagePotionRain()),
     disarm(new Disarm()),
     entangle(new Entangle()),
-    explodeondeath(new ExplodeOnDeath()),
     fire(new Fire()),
     fireball(new FireBall()),
     firebarrage(new FireBarrage()),
