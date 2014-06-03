@@ -64,13 +64,13 @@ public class BossFileManager {
 
     public int getAbilityChance(String bossName)
     {
-        if(!conf().isSet("abilitychance"))return 10;
+        if(!conf().isSet(bossName + ".abilitychance"))return 10;
         return conf().getInt(bossName + ".abilitychance");
     }
 
     public int getExp(String bossName)
     {
-        if(!conf().isSet("exp"))return 0;
+        if(!conf().isSet(bossName + ".exp"))return 0;
         return conf().getInt(bossName + ".exp");
     }
 
