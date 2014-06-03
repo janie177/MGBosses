@@ -27,6 +27,20 @@ Skeletor:
 ## All powers go under ability. It's case insensitive.
 
 
+##-------- Example Droplist --------##
+
+##'Material,amount,datavalue'
+##
+##default:
+##- '4,1,0'
+##- '98,10,0'
+##- '264,1,0'
+##
+##specialdrops:
+##- '90,1,0'
+##- '22,4,0'
+
+
 ## Powers -------------------------------------------
 ##  - Explode -- Explodes the area, dealing damage to everything.
 ##  - Launch -- Launch the player.

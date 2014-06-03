@@ -10,7 +10,7 @@ public class SmokeScreen implements Ability{
     @Override
     public void run(Player player, LivingEntity ent, double damage) {
 
-        player.sendMessage(ChatColor.RED + "[" + ent.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Shadow is on my side " + p.getDisplayName() + ChatColor.RESET + "...");
+        player.sendMessage(ChatColor.RED + "[" + ent.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Shadow is on my side " + player.getDisplayName() + ChatColor.RESET + "...");
 
         final Player p = player;
         final LivingEntity entity = ent;
