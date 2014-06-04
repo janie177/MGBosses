@@ -1,41 +1,50 @@
 package com.minegusta.mgbosses.powers.abilities;
 
-import com.google.common.collect.Lists;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.EntityEquipment;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.List;
 
 public class RemoveArmour implements Ability{
 
     @Override
     public void run(Player p, LivingEntity entity, double damage) {
         if (p.getInventory().getArmorContents().length == 0)return;
+        if(p.getInventory().firstEmpty() == (-1))return;
 
         ItemStack[] armour = p.getEquipment().getArmorContents();
-        List<ItemStack> list = Lists.newArrayList();
+        EntityEquipment equipment = p.getEquipment();
+        Inventory inv = p.getInventory();
+        ItemStack air = new ItemStack(Material.AIR);
 
-        for(ItemStack s : armour)
+        if(!equipment.getHelmet().getType().equals(Material.AIR))
         {
-            list.add(s);
+            inv.addItem(equipment.getHelmet());
+            equipment.setHelmet(air);
         }
 
-        for(int i = 0; i < 5; i++)
+        if(!equipment.getLeggings().getType().equals(Material.AIR) && inv.firstEmpty() != (-1))
         {
-
-            if(i > list.size()) break;
-            if(p.getInventory().firstEmpty() != (-1))
-            {
-                int get = i - 1;
-                if(get == -1) get = 0;
-                p.getInventory().addItem(list.get((get)));
-                list.remove(get);
-            }
+            inv.addItem(equipment.getLeggings());
+            equipment.setLeggings(air);
         }
-        p.getEquipment().setArmorContents(new ItemStack[list.size()]);
-        p.updateInventory();
+
+        if(!equipment.getChestplate().getType().equals(Material.AIR) && inv.firstEmpty() != (-1))
+        {
+            inv.addItem(equipment.getChestplate());
+            equipment.setChestplate(air);
+        }
+
+        if(!equipment.getBoots().getType().equals(Material.AIR) && inv.firstEmpty() != (-1))
+        {
+            inv.addItem(equipment.getBoots());
+            equipment.setBoots(air);
+        }
+
+
 
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "HAHA You are naked now!");
     }
