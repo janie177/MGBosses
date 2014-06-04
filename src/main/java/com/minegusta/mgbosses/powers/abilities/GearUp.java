@@ -40,7 +40,6 @@ public class GearUp implements Ability{
             skeleton.getEquipment().setBootsDropChance(0F);
             skeleton.getEquipment().setHelmetDropChance(0F);
             skeleton.getEquipment().setChestplateDropChance(0F);
-
         }
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Nice armor! Lets see if it fits me...");
     }

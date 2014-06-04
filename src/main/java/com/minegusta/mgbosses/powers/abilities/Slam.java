@@ -1,6 +1,7 @@
 package com.minegusta.mgbosses.powers.abilities;
 
 import com.minegusta.mgbosses.Main;
+import com.minegusta.mgbosses.util.TempData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -19,7 +20,7 @@ public class Slam implements Ability{
         entity.teleport(entity.getLocation().add(0, 0.5, 0));
         entity.setVelocity(new Vector(0, 3.1, 0));
         entity.setFallDistance(0);
-
+        TempData.god.put(entity.getUniqueId(), true);
 
         p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "BODYSLAM!");
 
@@ -36,6 +37,7 @@ public class Slam implements Ability{
                 public void run() {
                     if(k == 59)
                     {
+                        TempData.god.put(le.getUniqueId(), true);
                         world.createExplosion(l.getX(), l.getY(), l.getZ(), 3.0F, false, false);
                         for(Entity nearby : le.getNearbyEntities(6,6,6))
                         {

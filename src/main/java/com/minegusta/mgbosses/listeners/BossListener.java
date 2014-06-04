@@ -37,6 +37,13 @@ public class BossListener implements Listener {
             ability.runAbility();
         }
 
+        GodMode god = new GodMode(e);
+        if(god.hasGodMode())
+        {
+            e.setCancelled(true);
+            god.removeFromMap();
+        }
+
 
     }
 
@@ -73,6 +80,13 @@ public class BossListener implements Listener {
         {
             health.damage();
         }
+
+        GodMode god = new GodMode(e);
+        if(god.hasGodMode())
+        {
+            e.setCancelled(true);
+            god.removeFromMap();
+        }
     }
 
 
@@ -84,6 +98,13 @@ public class BossListener implements Listener {
         if(health.isBoss())
         {
             health.damage();
+        }
+
+        GodMode god = new GodMode(e);
+        if(god.hasGodMode())
+        {
+            e.setCancelled(true);
+            god.removeFromMap();
         }
     }
 
