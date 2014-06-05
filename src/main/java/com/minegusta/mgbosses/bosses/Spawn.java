@@ -34,7 +34,8 @@ public class Spawn {
 
         if(TempData.isSpawned.containsKey(boss.getName()))
         {
-            if(!(System.currentTimeMillis() - TimeUnit.MILLISECONDS.toSeconds(TempData.isSpawned.get(boss.getName())) > 300))return;
+            long secs = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - TempData.isSpawned.get(boss.getName()));
+            if(secs < 299)return;
         }
 
 
