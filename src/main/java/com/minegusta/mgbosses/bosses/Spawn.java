@@ -29,11 +29,13 @@ public class Spawn {
         if(!m.bossExists(bossName))return;
 
         Boss boss = new Boss(bossName);
-
-        if(!TempData.isSpawned.containsKey(boss.getName()))TempData.isSpawned.put(boss.getName(), false);
-        if(TempData.isSpawned.get(boss.getName()))return;
-
         LivingEntity entity = (LivingEntity) w.spawnEntity(l, boss.getMob());
+
+        if(TempData.isSpawned.containsKey(boss.getName()))return;
+
+        TempData.isSpawned.put(boss.getName(), entity.getUniqueId());
+
+
         if(boss.isWither())
         {
             Skeleton skele = (Skeleton) entity;
@@ -42,9 +44,9 @@ public class Spawn {
         entity.setCustomName(ChatColor.translateAlternateColorCodes('&', boss.getName()));
         entity.setCustomNameVisible(true);
         entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.CLOUD, 0,0,3,3,3,1,30,25);
+        entity.setRemoveWhenFarAway(false);
 
         TempData.boss.put(entity.getUniqueId(), boss);
-        TempData.isSpawned.put(boss.getName(), true);
         TempData.bossHealthMap.put(entity.getUniqueId(), boss.getHealth());
     }
 
