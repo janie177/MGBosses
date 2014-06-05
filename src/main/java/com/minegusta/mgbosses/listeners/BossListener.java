@@ -23,7 +23,6 @@ public class BossListener implements Listener {
         if(health.isBoss())
         {
             health.damage();
-            e.setDamage(1.0);
         }
 
         Damage damage = new Damage(e);
@@ -80,7 +79,6 @@ public class BossListener implements Listener {
         if(health.isBoss())
         {
             health.damage();
-            e.setDamage(1.0);
         }
 
         GodMode god = new GodMode(e);
@@ -100,7 +98,6 @@ public class BossListener implements Listener {
         if(health.isBoss())
         {
             health.damage();
-            e.setDamage(1.0);
         }
 
         GodMode god = new GodMode(e);

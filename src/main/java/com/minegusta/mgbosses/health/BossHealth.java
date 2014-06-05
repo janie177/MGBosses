@@ -14,6 +14,9 @@ public class BossHealth {
     private UUID uuid;
     private double damage;
     Entity entity;
+    EntityDamageByEntityEvent entityDamageByEntityEvent;
+    EntityDamageEvent entityDamageEvent;
+    EntityDamageByBlockEvent entityDamageByBlockEvent;
 
     //Constructors
 
@@ -22,6 +25,7 @@ public class BossHealth {
         this.uuid = e.getEntity().getUniqueId();
         this.damage = e.getDamage();
         this.entity = e.getEntity();
+        this.entityDamageByEntityEvent = e;
     }
 
     public BossHealth(EntityDamageEvent e)
@@ -29,6 +33,7 @@ public class BossHealth {
         this.uuid = e.getEntity().getUniqueId();
         this.damage = e.getDamage();
         this.entity = e.getEntity();
+        this.entityDamageEvent = e;
     }
 
     public BossHealth(EntityDamageByBlockEvent e)
@@ -36,6 +41,7 @@ public class BossHealth {
         this.uuid = e.getEntity().getUniqueId();
         this.damage = e.getDamage();
         this.entity = e.getEntity();
+        this.entityDamageByBlockEvent = e;
     }
 
     //Checks
@@ -70,6 +76,16 @@ public class BossHealth {
             TempData.bossHealthMap.remove(uuid);
             setMaxhealth();
         }
+        setDamageToOne();
+    }
+
+
+    private void setDamageToOne()
+    {
+        if(entityDamageByEntityEvent != null) entityDamageByEntityEvent.setDamage(1.0);
+        if(entityDamageEvent != null) entityDamageEvent.setDamage(1.0);
+        if(entityDamageByBlockEvent != null) entityDamageByBlockEvent.setDamage(1.0);
+
     }
 
 
