@@ -76,7 +76,7 @@ public class BossDeath {
     private void removeFromMap(String name)
     {
         TempData.boss.remove(uuid);
-        TempData.isSpawned.put(name, false);
+        TempData.isSpawned.remove(name);
     }
 
     private void sendMessageToPlayersAndAwardExp(String message, LivingEntity e, int exp)
