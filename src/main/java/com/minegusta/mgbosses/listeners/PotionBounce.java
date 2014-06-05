@@ -52,7 +52,7 @@ public class PotionBounce {
         World world = e.getEntity().getWorld();
         for (int i = 0; i < 6; i++) {
             ThrownPotion clone = (ThrownPotion) world.spawnEntity(e.getEntity().getLocation(), EntityType.SPLASH_POTION);
-            Vector v = new Vector(rand.nextDouble() / 6, 2.3, rand.nextDouble() / 6);
+            Vector v = new Vector(rand.nextDouble() / 6, 0.6, rand.nextDouble() / 6);
             clone.setVelocity(v);
             clone.setItem(potion.getItem());
         }
