@@ -8,6 +8,8 @@ import org.bukkit.World;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Skeleton;
 
+import java.util.concurrent.TimeUnit;
+
 public class Spawn {
 
     private String bossName;
@@ -29,11 +31,15 @@ public class Spawn {
         if(!m.bossExists(bossName))return;
 
         Boss boss = new Boss(bossName);
+
+        if(TempData.isSpawned.containsKey(boss.getName()))
+        {
+            if(!(System.currentTimeMillis() - TimeUnit.MILLISECONDS.toSeconds(TempData.isSpawned.get(boss.getName())) > 300))return;
+        }
+
+
         LivingEntity entity = (LivingEntity) w.spawnEntity(l, boss.getMob());
-
-        if(TempData.isSpawned.containsKey(boss.getName()))return;
-
-        TempData.isSpawned.put(boss.getName(), entity.getUniqueId());
+        TempData.isSpawned.put(boss.getName(), System.currentTimeMillis());
 
 
         if(boss.isWither())
