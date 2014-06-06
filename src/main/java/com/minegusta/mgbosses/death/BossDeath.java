@@ -1,9 +1,11 @@
 package com.minegusta.mgbosses.death;
 
+import com.minegusta.mgbosses.Main;
 import com.minegusta.mgbosses.bosses.Boss;
 import com.minegusta.mgbosses.drops.DropList;
 import com.minegusta.mgbosses.powers.abilities.ExplodeOnDeath;
 import com.minegusta.mgbosses.util.TempData;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.*;
@@ -63,10 +65,17 @@ public class BossDeath {
 
         List<String> list = boss.getDropList();
 
-        DropList dropList = new DropList(list);
+        final DropList dropList = new DropList(list);
 
-        LivingEntity le = (LivingEntity) entity;
-        le.getWorld().dropItemNaturally(le.getLocation(), dropList.get());
+        final LivingEntity le = (LivingEntity) entity;
+
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
+            @Override
+            public void run() {
+                le.getWorld().dropItemNaturally(le.getLocation(), dropList.get());
+            }
+        },20 * 3);
+
 
         removeFromMap(boss.getName());
     }
