@@ -61,7 +61,9 @@ public class BossDeath {
             le.getEquipment().setChestplate(air);
         }
 
-        sendMessageToPlayersAndAwardExp(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity, boss.getExp());
+
+
+        sendMessageToPlayersAndAwardExp(ChatColor.RED + boss.getDeathMessage(), (LivingEntity) entity, boss.getExp(), boss.getCredits());
 
         List<String> list = boss.getDropList();
 
@@ -88,13 +90,14 @@ public class BossDeath {
         TempData.isSpawned.remove(name);
     }
 
-    private void sendMessageToPlayersAndAwardExp(String message, LivingEntity e, int exp)
+    private void sendMessageToPlayersAndAwardExp(String message, LivingEntity e, int exp, int credits)
     {
         for(Entity ent : e.getNearbyEntities(15,15,15))
         {
             if(ent instanceof Player)
             {
                 Player p = (Player) ent;
+                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "addcredits " + p.getName() + " " + credits);
                 p.sendMessage(ChatColor.RED + "[" + e.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + message);
                 p.giveExp(exp);
             }

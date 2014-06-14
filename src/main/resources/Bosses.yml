@@ -3,6 +3,7 @@ ZombieKing:
   health: 200
   mob: GIANT
   damage: 5
+  credits: 0
   exp: 5
   deathmessage: 'NOOOOOOOOOOOOOOOOOOOOOO.'
   droplist:
@@ -18,6 +19,7 @@ Skeletor:
   exp: 30
   mob: WITHER_SKELETON
   damage: 6
+  credits: 2
   deathmessage: 'Well, you suck.'
   droplist:
     - 'default'
@@ -49,6 +51,8 @@ Skeletor:
 ## All powers go under ability. It's case insensitive.
 ## Multiple DropLists can be specified. Please try to keep it around 10% good drops. The rest should be junk.
 ## This way, drops wont always be good items. This is to make it more balanced and fun when you get good loot!
+
+## Credits are the points awarded for the GearUp plugin.
 
 ## DropLists use the format: 'Item,Amount,Data'
 ## You can also use: 'Item,Amount,Data,EnchantMentID,EnchantmentLevel'

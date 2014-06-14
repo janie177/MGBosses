@@ -15,6 +15,7 @@ public class Boss implements DefaultBoss{
     private double damage;
     private int abilityChance;
     private int exp;
+    private int credits;
     private boolean isWither;
     BossFileManager m = new BossFileManager();
 
@@ -30,6 +31,7 @@ public class Boss implements DefaultBoss{
         abilities = m.getAbilities(bossName);
         isWither = m.isWither(bossName);
         exp = m.getExp(bossName);
+        credits = m.getCredits(bossName);
     }
 
     @Override
@@ -88,5 +90,10 @@ public class Boss implements DefaultBoss{
     @Override
     public int getExp() {
         return exp;
+    }
+
+    @Override
+    public int getCredits() {
+        return credits;
     }
 }

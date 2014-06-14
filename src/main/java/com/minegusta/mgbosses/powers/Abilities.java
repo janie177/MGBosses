@@ -77,6 +77,7 @@ public enum Abilities {
     summonowl(new SummonOwl()),
     switchlocation(new SwitchLocation()),
     taunt(new Taunt()),
+    selfstrength(new SelfStrength()),
     weaknesspotionrain(new WeaknessPotionRain());
 
 

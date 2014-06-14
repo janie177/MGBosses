@@ -25,4 +25,6 @@ public interface DefaultBoss {
     public boolean isWither();
 
     public int getExp();
+
+    public int getCredits();
 }

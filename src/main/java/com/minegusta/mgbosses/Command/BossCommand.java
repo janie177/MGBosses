@@ -1,4 +1,4 @@
-package com.minegusta.mgbosses.Command;
+package com.minegusta.mgbosses.command;
 
 import com.minegusta.mgbosses.filemanager.Files;
 import com.minegusta.mgbosses.util.TempData;

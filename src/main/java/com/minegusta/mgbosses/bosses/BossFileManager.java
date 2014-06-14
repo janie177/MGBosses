@@ -74,6 +74,12 @@ public class BossFileManager {
         return conf().getInt(bossName + ".exp");
     }
 
+    public int getCredits(String bossName)
+    {
+        if(!conf().isSet(bossName + ".credits"))return 0;
+        return conf().getInt(bossName + ".credits");
+    }
+
     public boolean bossExists(String bossName)
     {
         return conf().isSet(bossName);
