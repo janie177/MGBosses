@@ -1,0 +1,9 @@
+main: com.minegusta.mgbosses.Main
+name: MGBosses
+author: janie177
+version: ${project.version}
+
+commands:
+   bossreload:
+      description: Reload Bosses.
+      usage: /bossreload
