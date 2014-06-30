@@ -50,7 +50,6 @@ public enum Abilities {
     witchhorde(new WitchHorde()),
     witherskeletonhorde(new WitherSkeletonHorde()),
     wolfhorde(new WolfHorde()),
-    zombiephorde(new ZombiePigManHorde()),
     zombieminions(new ZombieMinions()),
     zombiepigmanhorde(new ZombiePigManHorde()),
     arrowrain(new ArrowRain()),
@@ -78,6 +77,7 @@ public enum Abilities {
     switchlocation(new SwitchLocation()),
     taunt(new Taunt()),
     selfstrength(new SelfStrength()),
+    zombiehorde(new ZombieHorde()),
     weaknesspotionrain(new WeaknessPotionRain());
 
 

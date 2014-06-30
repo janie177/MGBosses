@@ -6,7 +6,7 @@
 
     <groupId>com.minegusta</groupId>
     <artifactId>mgbosses</artifactId>
-    <version>0.1.6.9</version>
+    <version>0.1.7.0</version>
     <packaging>jar</packaging>
 
     <name>MGBosses</name>

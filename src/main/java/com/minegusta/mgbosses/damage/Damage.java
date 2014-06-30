@@ -56,7 +56,6 @@ public class Damage {
     {
         Boss boss = TempData.boss.get(uuid);
         e.setDamage(boss.getDamage());
-
     }
 
 
