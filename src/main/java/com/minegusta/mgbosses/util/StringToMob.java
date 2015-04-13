@@ -34,6 +34,8 @@ public enum StringToMob {
     WOLF(EntityType.WOLF),
     WITCH(EntityType.WITCH),
     IRON_GOLEM(EntityType.IRON_GOLEM),
+    GUARDIAN(EntityType.GUARDIAN),
+    RABBIT(EntityType.RABBIT),
     WITHER(EntityType.WITHER);
     
 
