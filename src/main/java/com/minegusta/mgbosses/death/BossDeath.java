@@ -8,7 +8,10 @@ import com.minegusta.mgbosses.util.TempData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Skeleton;
+import org.bukkit.entity.Zombie;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -92,15 +95,11 @@ public class BossDeath {
 
     private void sendMessageToPlayersAndAwardExp(String message, LivingEntity e, int exp, int credits)
     {
-        for(Entity ent : e.getNearbyEntities(15,15,15))
+        e.getWorld().getPlayers().stream().filter(ent -> ent.getLocation().distance(e.getLocation()) < 16).forEach(p ->
         {
-            if(ent instanceof Player)
-            {
-                Player p = (Player) ent;
-                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "addcredits " + p.getName() + " " + credits);
-                p.sendMessage(ChatColor.RED + "[" + e.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + message);
-                p.giveExp(exp);
-            }
-        }
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "addcredits " + p.getName() + " " + credits);
+            p.sendMessage(ChatColor.RED + "[" + e.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + message);
+            p.giveExp(exp);
+        });
     }
 }

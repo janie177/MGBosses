@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
@@ -31,24 +30,16 @@ public class Slam implements Ability{
 
         for (int i = 0; i < 20 * 3; i++) {
             final int k = i;
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, ()-> {
 
-                @Override
-                public void run() {
                     if(k == 59)
                     {
                         TempData.god.put(le.getUniqueId(), true);
                         world.createExplosion(l.getX(), l.getY(), l.getZ(), 3.0F, false, false);
-                        for(Entity nearby : le.getNearbyEntities(6,6,6))
-                        {
-                            if(nearby instanceof Player)
-                            {
-                                Player nearbyPlayer = (Player) nearby;
-                                nearbyPlayer.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 5, 0));
-                            }
-                        }
+
+                        le.getWorld().getPlayers().stream().filter(pl -> pl.getLocation().distance(le.getLocation()) < 7).forEach(pl -> pl.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20 * 5, 0)));
                     }
-                }
+
             }, i);
         }
     }
