@@ -9,7 +9,11 @@ import org.bukkit.inventory.ItemStack;
 public class Disarm implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
+
+        if(!(damager instanceof Player))return;
+
+        Player p = (Player) damager;
 
         if(p.getInventory().firstEmpty() != (-1) && !p.getItemInHand().getType().equals(Material.AIR))
         {

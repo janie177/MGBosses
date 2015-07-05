@@ -2,7 +2,6 @@ package com.minegusta.mgbosses.powers.abilities;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.ItemStack;
@@ -10,14 +9,14 @@ import org.bukkit.inventory.ItemStack;
 public class GearUp implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
         if(!(entity instanceof Zombie) && !(entity instanceof Skeleton))return;
 
         ItemStack[] armour;
-        if(p.getEquipment().getArmorContents().length != 0)
+        if(damager.getEquipment().getArmorContents().length != 0)
         {
-            armour = p.getEquipment().getArmorContents();
+            armour = damager.getEquipment().getArmorContents();
         } else return;
 
         if(entity instanceof Zombie)
@@ -41,6 +40,6 @@ public class GearUp implements Ability{
             skeleton.getEquipment().setHelmetDropChance(0F);
             skeleton.getEquipment().setChestplateDropChance(0F);
         }
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Nice armor! Lets see if it fits me...");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Nice armor! Lets see if it fits me...");
     }
 }

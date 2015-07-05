@@ -17,7 +17,7 @@ public class AbilityManager {
 
     private EntityDamageByEntityEvent e;
     private UUID uuid;
-    private Player p;
+    private LivingEntity damager;
     private LivingEntity entity;
     private double damage;
 
@@ -36,11 +36,11 @@ public class AbilityManager {
         return TempData.boss.containsKey(uuid);
     }
 
-    public boolean isPlayer()
+    public boolean isLivingEntity()
     {
-        if(e.getDamager() instanceof Player)
+        if(e.getDamager() instanceof LivingEntity)
         {
-            p = (Player) e.getDamager();
+            damager = (Player) e.getDamager();
             entity = (LivingEntity) e.getEntity();
             damage = e.getDamage();
             return true;
@@ -48,9 +48,9 @@ public class AbilityManager {
         else if(e.getDamager() instanceof Arrow)
         {
             ProjectileSource source = ((Arrow) e.getDamager()).getShooter();
-            if(source instanceof Player)
+            if(source instanceof LivingEntity)
             {
-                p = ((Player) source);
+                damager = ((LivingEntity) source);
                 entity = (LivingEntity) e.getEntity();
                 damage = e.getDamage();
                 return true;
@@ -74,7 +74,7 @@ public class AbilityManager {
 
         chance = rand.nextInt(abilities.size());
         Ability skill = Abilities.valueOf(abilities.get(chance).toLowerCase()).get();
-        skill.run(p, entity, damage);
+        skill.run(damager, entity, damage);
 
     }
 }

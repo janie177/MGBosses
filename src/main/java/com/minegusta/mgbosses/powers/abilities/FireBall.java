@@ -4,16 +4,15 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 public class FireBall implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Pew!");
-        shootFireball(entity.getLocation(), p.getLocation(), entity);
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Pew!");
+        shootFireball(entity.getLocation(), damager.getLocation(), entity);
 
     }
 

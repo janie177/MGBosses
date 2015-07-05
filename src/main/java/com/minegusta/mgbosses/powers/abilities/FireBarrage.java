@@ -6,23 +6,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 public class FireBarrage implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Pew! Pew Pew Pew!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Pew! Pew Pew Pew!");
 
         final LivingEntity ent = entity;
-        final Location pl = p.getLocation();
+        final Location pl = damager.getLocation();
         final Location el = ent.getLocation();
         for (int i = 0; i < 20 * 3; i++)
 
         {
-            final Location l = p.getLocation();
+            final Location l = damager.getLocation();
             final int k = i;
             Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
 

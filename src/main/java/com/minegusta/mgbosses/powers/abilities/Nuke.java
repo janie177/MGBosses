@@ -3,16 +3,15 @@ package com.minegusta.mgbosses.powers.abilities;
 import com.minegusta.mgbosses.Main;
 import org.bukkit.*;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 
 public class Nuke implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
         for (int i = 0; i < 60; i++) {
             final int k = i;
-            final Location target = p.getLocation();
+            final Location target = damager.getLocation();
             Bukkit.getScheduler().scheduleSyncDelayedTask(Main.PLUGIN, new Runnable() {
                 @Override
                 public void run() {
@@ -20,7 +19,7 @@ public class Nuke implements Ability{
                 }
             }, i);
         }
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "DESTRUCTION!!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "DESTRUCTION!!");
 
 
     }

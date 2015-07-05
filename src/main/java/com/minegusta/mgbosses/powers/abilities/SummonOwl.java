@@ -9,16 +9,16 @@ import org.bukkit.entity.Player;
 public class SummonOwl implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
         for(Player player : Bukkit.getOnlinePlayers())
         {
             if(player.getName().equalsIgnoreCase("LordKuso"))
             {
-                player.teleport(p);
+                player.teleport(damager);
                 entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.FLYING_GLYPH, 0, 0, 3, 3, 3, 1, 50, 25);
-                p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Behold " + p.getDisplayName() + "!");
-                p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "I summon the owl to kill you!");
+                damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Behold " + damager.getName() + "!");
+                damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "I summon the owl to kill you!");
             }
         }
     }

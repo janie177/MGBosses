@@ -11,7 +11,12 @@ import org.bukkit.inventory.ItemStack;
 public class RemoveArmour implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
+
+        if(!(damager instanceof Player))return;
+
+        Player p = (Player) damager;
+
         if (p.getInventory().getArmorContents().length == 0)return;
         if(p.getInventory().firstEmpty() == (-1))return;
 

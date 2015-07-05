@@ -32,7 +32,7 @@ public class BossListener implements Listener {
         }
 
         AbilityManager ability = new AbilityManager(e);
-        if(ability.isBossMob() && ability.isPlayer())
+        if(ability.isBossMob() && ability.isLivingEntity())
         {
             ability.runAbility();
         }

@@ -6,18 +6,17 @@ import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 
 public class ArrowRain implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage)
+    public void run(LivingEntity damager, LivingEntity entity, double damage)
     {
 
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "That's right! Keep running!!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "That's right! Keep running!!");
 
-    final World world = p.getWorld();
-    final Player player = p;
+    final World world = damager.getWorld();
+    final LivingEntity le = damager;
     for (int i = 0; i < 20 * 8; i++)
     {
         final int k = i;
@@ -25,7 +24,7 @@ public class ArrowRain implements Ability{
 
             @Override
             public void run() {
-               if(k % 5 == 0) world.spawnEntity(player.getLocation().add(0, 12, 0), EntityType.ARROW);
+               if(k % 5 == 0) world.spawnEntity(le.getLocation().add(0, 12, 0), EntityType.ARROW);
 
             }
 

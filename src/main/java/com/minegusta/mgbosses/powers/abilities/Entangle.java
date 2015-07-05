@@ -10,14 +10,13 @@ import org.bukkit.entity.Player;
 public class Entangle implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
-        final Player player = p;
-        final Location l = p.getLocation();
+        final Location l = damager.getLocation();
+        final LivingEntity le = damager;
 
-
-        player.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Not so fast now!");
-        player.sendMessage(ChatColor.RED + "You have been entangled!");
+        le.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Not so fast now!");
+        if(le instanceof Player) le.sendMessage(ChatColor.RED + "You have been entangled!");
 
 
 
@@ -30,7 +29,7 @@ public class Entangle implements Ability{
                 public void run() {
                     if(k % 5 == 0)
                     {
-                        player.teleport(l);
+                        le.teleport(l);
                     }
                 }
 

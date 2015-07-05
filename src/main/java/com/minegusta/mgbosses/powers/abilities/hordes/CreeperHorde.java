@@ -6,12 +6,11 @@ import org.bukkit.Effect;
 import org.bukkit.entity.Creeper;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 
 public class CreeperHorde implements Ability {
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
         int amount = 5;
         for(int i = 0; i < amount + 1; i ++)
         {
@@ -20,6 +19,6 @@ public class CreeperHorde implements Ability {
             mob.setCustomNameVisible(true);
         }
         entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.PARTICLE_SMOKE, 0, 0, 3, 3, 3, 1, 15, 25);
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "This will blow your mind!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "This will blow your mind!");
     }
 }

@@ -11,9 +11,13 @@ import org.bukkit.inventory.ItemStack;
 public class CloneWeapon implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
 
         if(!(entity instanceof Zombie) && !(entity instanceof Skeleton))return;
+
+        if(!(damager instanceof Player)) return;
+
+        Player p = (Player) damager;
 
         ItemStack weapon;
         if(!p.getItemInHand().getType().equals(Material.AIR))
@@ -33,6 +37,6 @@ public class CloneWeapon implements Ability{
             skeleton.getEquipment().setItemInHand(weapon);
             skeleton.getEquipment().setItemInHandDropChance(0F);
         }
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "I will use your own weapon against you!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "I will use your own weapon against you!");
     }
 }

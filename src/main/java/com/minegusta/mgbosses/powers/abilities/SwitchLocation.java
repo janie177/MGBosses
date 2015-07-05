@@ -3,17 +3,16 @@ package com.minegusta.mgbosses.powers.abilities;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 
 public class SwitchLocation implements Ability{
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Plot twist!");
-        final Location ploc = p.getLocation();
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Plot twist!");
+        final Location ploc = damager.getLocation();
         final Location eloc = entity.getLocation();
 
         entity.teleport(ploc);
-        p.teleport(eloc);
+        damager.teleport(eloc);
     }
 }

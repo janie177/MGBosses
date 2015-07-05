@@ -5,13 +5,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Spider;
 
 public class SpiderHorde implements Ability {
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
         int amount = 8;
         for(int i = 0; i < amount + 1; i ++)
         {
@@ -20,6 +19,6 @@ public class SpiderHorde implements Ability {
             mob.setCustomNameVisible(true);
         }
         entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.FLAME, 0, 0, 3, 3, 3, 1, 15, 25);
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Feed on your pray! Leave none alive!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Feed on your pray! Leave none alive!");
     }
 }

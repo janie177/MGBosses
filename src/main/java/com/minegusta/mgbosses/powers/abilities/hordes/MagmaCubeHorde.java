@@ -6,12 +6,11 @@ import org.bukkit.Effect;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.MagmaCube;
-import org.bukkit.entity.Player;
 
 public class MagmaCubeHorde implements Ability {
 
     @Override
-    public void run(Player p, LivingEntity entity, double damage) {
+    public void run(LivingEntity damager, LivingEntity entity, double damage) {
         int amount = 3;
         for(int i = 0; i < amount + 1; i ++)
         {
@@ -20,6 +19,6 @@ public class MagmaCubeHorde implements Ability {
             mob.setCustomNameVisible(true);
         }
         entity.getWorld().spigot().playEffect(entity.getLocation(), Effect.SLIME, 0, 0, 3, 3, 3, 1, 15, 25);
-        p.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Magma will consume you!");
+        damager.sendMessage(ChatColor.RED + "[" + entity.getCustomName() + ChatColor.RED + "] " + ChatColor.RESET + "Magma will consume you!");
     }
 }
