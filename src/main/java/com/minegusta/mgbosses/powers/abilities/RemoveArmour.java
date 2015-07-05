@@ -20,7 +20,6 @@ public class RemoveArmour implements Ability{
         if (p.getInventory().getArmorContents().length == 0)return;
         if(p.getInventory().firstEmpty() == (-1))return;
 
-        ItemStack[] armour = p.getEquipment().getArmorContents();
         EntityEquipment equipment = p.getEquipment();
         Inventory inv = p.getInventory();
         ItemStack air = new ItemStack(Material.AIR);
