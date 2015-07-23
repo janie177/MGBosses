@@ -42,7 +42,6 @@ public class Spawn {
         LivingEntity entity = (LivingEntity) w.spawnEntity(l, boss.getMob());
         TempData.isSpawned.put(boss.getName(), System.currentTimeMillis());
 
-
         if(boss.isWither())
         {
             Skeleton skele = (Skeleton) entity;

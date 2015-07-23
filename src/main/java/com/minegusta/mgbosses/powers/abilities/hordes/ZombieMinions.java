@@ -11,6 +11,11 @@ public class ZombieMinions implements Ability {
 
     @Override
     public void run(LivingEntity damager, LivingEntity entity, double damage) {
+
+        if(entity.getWorld().getLivingEntities().stream().filter(ent -> ent instanceof Zombie && ((Zombie)ent).isBaby() && ent.getLocation().distance(entity.getLocation()) < 15).count() > 15)
+        {
+            return;
+        }
         int amount = 8;
         for(int i = 0; i < amount + 1; i ++)
         {
